@@ -22,6 +22,8 @@ export const UserContextProvider = (props) => {
       console.log(user)
       if (user)
         setUser(user); 
+      else
+        updateSessionUser(user);
     } 
   }
 
