@@ -8,8 +8,13 @@ const nextConfig = {
         destination: '/jobs',
         permanent: true
       },
-    ]
-  },
+      {
+        source: '/jobs/edit',
+        destination: '/jobs/new',
+        permanent: true
+      }
+    ] 
+  }
 };
 
 export default nextConfig;
