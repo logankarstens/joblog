@@ -18,10 +18,9 @@ export const UserContextProvider = (props) => {
     const response = await fetch('/api/user');
 
     if (response.status == 200) {
-      const user = await response.json();
-      console.log(user)
-      if (user)
-        setUser(user); 
+      const sessionUser = await response.json();
+      if (sessionUser)
+        setUser(sessionUser); 
       else
         updateSessionUser(user);
     } 
