@@ -9,17 +9,12 @@ export const sessionOptions = {
   },
 };
 
-const getSession = async (req, res) => {
+export const getSession = async (req, res) => {
   const session = getIronSession(req, res, sessionOptions)
   return session
 }
 
-const getServerActionSession = async () => {
+export const getServerActionSession = async () => {
   const session = getServerActionIronSession(sessionOptions, cookies())
   return session
-}
-
-export {
-  getSession,
-  getServerActionSession
 }

@@ -19,10 +19,6 @@ export default async function handler(req, res) {
       case "POST":
         const newJob = JSON.parse(req.body);
 
-        console.log ({
-          ...newJob,
-          user: session.user.username
-        });
         const result = await Job.create({
           ...newJob,
           user: session.user.username

@@ -5,6 +5,7 @@ const JobSchema = new mongoose.Schema({
   title: { type: String, required: true },
   employer: { type: String, required: true },
   postingURL: { type: String, required: false },
+  status: { type: String, required: true },
   user: { type: String, required: true }
 });
 

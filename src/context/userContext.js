@@ -1,10 +1,7 @@
-'use server'
-
 import { createContext, useEffect, useState } from 'react';
 import React from 'react';
 
 import router from "next/router";
-
 
 const UserContext = createContext({
   user: null,

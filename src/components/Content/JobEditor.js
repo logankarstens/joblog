@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import StatusDropdown from '../UI/StatusDropdown';
 
 export default function JobEditor({ _id }) {
   
@@ -7,6 +8,7 @@ export default function JobEditor({ _id }) {
   const [title, setTitle] = useState("");
   const [employer, setEmployer] = useState("");
   const [postingURL, setPostingURL] = useState("");
+  const [status, setStatus] = useState(null)
 
   //Save progress states
   const [currentError, setCurrentError] = useState(null);
@@ -32,6 +34,7 @@ export default function JobEditor({ _id }) {
         setTitle(job.title);
         setEmployer(job.employer);
         setPostingURL(job.postingURL ?? "");
+        setStatus(job.status)
       } else {
         setCurrentError("Error loading job. Please refresh the page.");
       }
@@ -52,7 +55,8 @@ export default function JobEditor({ _id }) {
         date: Date.now(),
         title: title,
         employer: employer,
-        postingURL: postingURL.length ? postingURL : null
+        postingURL: postingURL.length ? postingURL : null,
+        status: status
       })
     });
 
@@ -103,9 +107,14 @@ export default function JobEditor({ _id }) {
           </div>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-3 mb-4">
           <label>Link to job posting: </label>
           <input value={postingURL} onInput={e => setPostingURL(e.target.value)} className="flex-grow px-2 bg-zinc-800 focus:bg-gray-800 focus:outline-none"></input>
+        </div>
+
+        <div className="flex gap-3">
+          <label>Application Status: </label>
+          <StatusDropdown value={status} onChange={s => setStatus(s)} />
         </div>
       </div>
 
